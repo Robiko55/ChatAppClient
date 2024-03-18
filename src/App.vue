@@ -1,32 +1,34 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+    <navbar-app></navbar-app>
+    <RouterView></RouterView>
+    <login></login>
+    <chat-bot></chat-bot>
+   <!-- <home-page></home-page> -->
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HomePage from './views/home-page/HomePage.vue';
+import { RouterView } from 'vue-router';
+import Navbar from './components/navbar/Navbar.vue';
+import LoginModal from './components/loginModal/LoginModal.vue';
+import GptAssistant from './components/gptAssistant/GptAssistant.vue';
+export default {
+components: {
+  'home-page': HomePage,
+  'navbar-app': Navbar,
+  'login': LoginModal,
+  'chat-bot': GptAssistant,
+  RouterView
+},
+data() {
+  return {
 
-nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
   }
 }
+}
+</script>
+<style lang="scss">
+@import './scss/index.scss';
 </style>
